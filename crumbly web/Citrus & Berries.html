@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citrus & Berry: A Gourmet Recipe Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        berry: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            500: '#db2777',
+                            800: '#9d174d',
+                            900: '#4c0519',
+                        },
+                        citrus: {
+                            50: '#fefce8',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        slate: {
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        .recipe-gradient {
+            background: radial-gradient(circle at top right, #4c0519, #020617);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #9d174d;
+            border-radius: 10px;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans custom-scrollbar overflow-x-hidden selection:bg-berry-500 selection:text-white">
+
+    <!-- Hero Section -->
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/60 to-slate-950"></div>
+            <!-- Decorative floating circles -->
+            <div class="absolute top-20 left-10 w-64 h-64 bg-berry-900/30 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-citrus-600/10 rounded-full blur-3xl animate-float" style="animation-delay: -2s"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl animate-fade-in">
+            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-citrus-400 uppercase bg-citrus-400/10 border border-citrus-400/20 rounded-full">
+                Seasonal Flavors
+            </span>
+            <h1 class="font-display text-6xl md:text-8xl font-black mb-6 tracking-tight leading-none italic">
+                Citrus <span class="text-berry-500">&</span> Berries
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
+                A curated selection of artisanal desserts blending the sharp tang of Mediterranean lemons with the deep sweetness of wild French blueberries.
+            </p>
+            <div class="mt-12 flex justify-center space-x-4">
+                <a href="#recipes" class="px-8 py-4 bg-berry-800 hover:bg-berry-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-berry-900/20">
+                    Explore Recipes
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </header>
+
+    <main id="recipes" class="relative z-10 px-4 md:px-8 py-20 max-w-7xl mx-auto space-y-32">
+        
+        <!-- Recipe 1: Steamed Pudding -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 group relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-citrus-600 to-berry-800 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-video lg:aspect-[4/3] shadow-2xl">
+                    <img src='https://opal.google/board/blobs/7189c04d-4542-489b-a5e4-701713dba376' alt='Steamed Lemon-Lime Marmalade Sponge Pudding' class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+            </div>
+            <div class="lg:col-span-5 space-y-8 animate-slide-up">
+                <div>
+                    <span class="text-citrus-400 font-bold tracking-tighter text-5xl opacity-20 block mb-2">01</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">Steamed Lemon-Lime Marmalade Sponge Pudding</h2>
+                    <div class="w-20 h-1 bg-citrus-500"></div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="font-display text-xl font-bold text-citrus-400 mb-4 uppercase tracking-wider">Ingredients</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-300">
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>1/2 cup Butter (softened)</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>1/2 cup Sugar</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>2 Eggs</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>1 cup Flour</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>1 tsp Baking powder</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>1 tsp Vanilla</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-citrus-500 rounded-full"></span><span>4 tbsp Marmalade</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lg:col-span-12 glass-card p-8 md:p-12 rounded-3xl">
+                <h3 class="font-display text-2xl font-bold mb-8 flex items-center">
+                    <span class="bg-citrus-500/20 text-citrus-400 w-10 h-10 rounded-lg flex items-center justify-center mr-4">Step</span> Method
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="space-y-4">
+                        <p class="text-slate-400"><strong class="text-white">Prep:</strong> Cream butter and sugar until pale. Beat in eggs one by one and add vanilla. Fold in dry ingredients gently.</p>
+                        <p class="text-slate-400"><strong class="text-white">Assembly:</strong> Grease basin, add marmalade to the bottom, and top with batter.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-slate-400"><strong class="text-white">Seal:</strong> Cover tightly with parchment and foil. Secure with twine if needed.</p>
+                        <p class="text-slate-400"><strong class="text-white">Steam:</strong> Steam for 50-60 minutes in a water bath halfway up the bowl.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-slate-400"><strong class="text-white">Serve:</strong> Rest for 5 mins, then invert onto a plate to let the marmalade glaze cascade down.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe 2: Blueberry Scones -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 order-2 lg:order-1 space-y-8">
+                <div>
+                    <span class="text-berry-500 font-bold tracking-tighter text-5xl opacity-20 block mb-2">02</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">Blueberry Lemon Skillet Scones</h2>
+                    <div class="w-20 h-1 bg-berry-500"></div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="font-display text-xl font-bold text-berry-500 mb-4 uppercase tracking-wider">Ingredients</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-300">
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>2 cups Flour</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>1/4 cup Sugar</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>1 tbsp Baking powder</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>1/2 cup Butter (cold)</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>1 Egg</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>3 tbsp Lemon Juice</span></li>
+                        <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-berry-500 rounded-full"></span><span>1/2 cup Blueberry jam</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lg:col-span-7 order-1 lg:order-2 group relative">
+                <div class="absolute -inset-1 bg-gradient-to-l from-berry-800 to-citrus-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-video lg:aspect-[4/3] shadow-2xl">
+                    <img src='https://opal.google/board/blobs/9be89cc7-ca74-4878-81e7-2468fd3309fd' alt='Blueberry Lemon Skillet Scones' class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+            </div>
+            <div class="lg:col-span-12 order-3 glass-card p-8 md:p-12 rounded-3xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-display text-2xl font-bold mb-4">The Dough</h3>
+                        <p class="text-slate-400 leading-relaxed mb-4">Whisk dry ingredients. Rub in cold butter until it reaches a coarse crumb texture. Combine egg, lemon, and vanilla separately, then merge into dry ingredients to form a stiff dough.</p>
+                        <p class="text-slate-400 leading-relaxed">Fold in the blueberry jam gently—you want beautiful purple streaks, not a solid color.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-2xl font-bold mb-4">Skillet Baking</h3>
+                        <p class="text-slate-400 leading-relaxed mb-4">Shape into a disk and cut into 8 wedges. Heat a greased skillet over low heat. Cook covered for 8–10 minutes per side.</p>
+                        <p class="text-slate-400 leading-relaxed italic border-l-2 border-berry-500 pl-4">Pro Tip: Keep the heat very low so the centers bake through without scorching the golden exterior.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe 3: Crepes -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 group relative">
+                <div class="absolute -inset-1 bg-gradient-to-tr from-citrus-500 via-berry-500 to-citrus-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-video lg:aspect-[4/3] shadow-2xl">
+                    <img src='https://opal.google/board/blobs/ec539730-2df3-4611-8d19-0013ea62d525' alt='Zesty Lemon Skillet Crepes' class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+            </div>
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <span class="text-citrus-400 font-bold tracking-tighter text-5xl opacity-20 block mb-2">03</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">Zesty Lemon Skillet Crepes</h2>
+                    <div class="w-20 h-1 bg-citrus-500"></div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="font-display text-xl font-bold text-citrus-400 mb-6 uppercase tracking-wider">The Essentials</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest mb-2">Batter Base</p>
+                            <p class="text-slate-300">1 cup Flour, 2 Eggs, 2 tbsp Sugar, 2 tbsp Melted Butter, 1 tsp Vanilla</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest mb-2">Citrus Kick</p>
+                            <p class="text-slate-300">4 tbsp Fresh Lemon Juice</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-widest mb-2">The Filling</p>
+                            <p class="text-slate-300">1/2 cup French Wild Blueberry Jam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-xl border-l-4 border-citrus-500">
+                        <h4 class="font-bold text-citrus-400 mb-2">1. Whisk</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Combine eggs, sugar, butter, vanilla, and juice. Vigorously whisk in flour to avoid any lumps. Adjust with juice if too thick.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl border-l-4 border-berry-500">
+                        <h4 class="font-bold text-berry-500 mb-2">2. Swirl</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Pour thin batter into a buttered medium-heat skillet. Tilt to coat. Cook until edges are golden and top sets.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl border-l-4 border-citrus-400">
+                        <h4 class="font-bold text-citrus-400 mb-2">3. Fill & Fold</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">Spread blueberry jam over the warm crepe. Fold into quarters or roll for a beautiful presentation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe 4: Parfait -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+             <div class="lg:col-span-5 order-2 lg:order-1 space-y-8">
+                <div>
+                    <span class="text-berry-500 font-bold tracking-tighter text-5xl opacity-20 block mb-2">04</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-4">No-Bake Blueberry & Marmalade Parfait</h2>
+                    <div class="w-20 h-1 bg-berry-500"></div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4">
+                        <span class="text-[120px] font-black text-white/5 absolute -top-10 -right-5 select-none pointer-events-none">LAYER</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-berry-500 mb-4 uppercase tracking-wider">Components</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="p-3 rounded bg-white/5 border border-white/10 text-slate-300"><span class="block text-citrus-400 font-bold mb-1">Base</span> Toasted Flour & Butter Crumbles</div>
+                        <div class="p-3 rounded bg-white/5 border border-white/10 text-slate-300"><span class="block text-berry-500 font-bold mb-1">Berry</span> Blueberry Jam with Lemon Juice</div>
+                        <div class="p-3 rounded bg-white/5 border border-white/10 text-slate-300"><span class="block text-citrus-500 font-bold mb-1">Zest</span> Marmalade Zesty Sauce</div>
+                        <div class="p-3 rounded bg-white/5 border border-white/10 text-slate-300"><span class="block text-slate-400 font-bold mb-1">Chill</span> 30 mins Refrigeration</div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-7 order-1 lg:order-2 group relative">
+                <div class="absolute -inset-1 bg-gradient-to-br from-berry-900 to-slate-950 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-video lg:aspect-[4/3] shadow-2xl">
+                    <img src='https://opal.google/board/blobs/0e1ffb03-5f3c-4a96-843a-da9472e2ee5b' alt='No-Bake Blueberry & Marmalade Layered Parfait' class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+            </div>
+            <div class="lg:col-span-12 order-3">
+                <div class="bg-slate-900/50 rounded-3xl p-8 md:p-12 border border-white/5">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="md:w-1/2">
+                            <h4 class="text-citrus-400 font-bold mb-4 uppercase text-sm tracking-widest italic">The Golden Crumb</h4>
+                            <p class="text-slate-300 leading-relaxed">In a skillet, melt butter, sugar, and vanilla. Stir in flour and soda. "Toast" for 5-8 minutes until golden and nutty. This creates a deeply flavored, cooked cookie-like base that provides the essential crunch.</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h4 class="text-berry-500 font-bold mb-4 uppercase text-sm tracking-widest italic">The Assembly</h4>
+                            <p class="text-slate-300 leading-relaxed">Thin the jam and marmalade with lemon juice. In tall glasses, layer: 2 tbsp crumbles, blueberry mixture, more crumbles, then marmalade. Repeat. Chill to allow flavors to meld and textures to soften slightly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="py-20 text-center opacity-40 hover:opacity-100 transition-opacity duration-500">
+        <div class="w-16 h-px bg-gradient-to-r from-transparent via-slate-500 to-transparent mx-auto mb-8"></div>
+        <p class="font-display italic text-2xl">Bon Appétit</p>
+    </div>
+
+    <script>
+        // Simple scroll reveal effect for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
